@@ -8,7 +8,6 @@ import ControleB from "./ControleB"
 export default function App({pages}) {
     return (
         <>
-    <TaskSet pages={pages}/>
     <ControleB />
     </>
     )
