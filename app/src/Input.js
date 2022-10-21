@@ -5,8 +5,9 @@ import {useState} from "react";
 
 let newId = 1;
 let taskFirst = [];
+let showing = [];
 
-export default function TaskSet() {
+export default function TaskSet({pages}) {
     const [body, setBody] = useState('');
     const [active, setActive] = useState(1);
     const [task, setTask] = useState(taskFirst);
@@ -27,7 +28,16 @@ export default function TaskSet() {
         console.log(task);
     };
 
-    let showing = task.filter((e)=> e.active===1);
+    console.log(pages)
+    if (pages===0){
+        showing = task.filter((e)=> e.active===1);
+    }
+    else if (pages===1){
+        showing = task.filter((e)=> e.active===0);
+    }
+    else if (pages===2){
+        showing = task
+    };
 
     return (
         <>
@@ -42,7 +52,7 @@ export default function TaskSet() {
             <h5>{showing.length} :Tasks left</h5>
             <ul>
                 {showing.map(e => (
-                    <li key={e.id}>{e.body} <button onClick={() => e.active=0}>finish</button> </li>
+                    <li key={e.id}>{e.body} <button onClick={() => e.active=0}>compleate</button> </li>
                 ))}
             </ul>
         </>

@@ -1,14 +1,18 @@
 import React from "react"
 import TaskSet from "./Input"
+import ControleB from "./ControleB"
 
 
 
 //created at + edited at times to come
-export default function App() {
+export default function App({pages}) {
     return (
-    <TaskSet />
+        <>
+    <TaskSet pages={pages}/>
+    <ControleB />
+    </>
     )
-}
+};
 
 
 
