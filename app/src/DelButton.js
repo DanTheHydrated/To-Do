@@ -1,15 +1,24 @@
-import setTask from "./Input";
 
-export default function DelButton(props) {
 
-        let index = 
+export default function DelButton({task, setTask, thisId}) {
 
-    function change() {
-    now.index.acitive === 0;
-    }
+    const newTask = [...task]
+
+    function Clicked() {
+        const newId = newTask.map((i)=> {
+            if(i === thisId) {
+                return {
+                    ...thisId,
+                    active: 0,
+                };
+            }
+        });
+        setTask(newId);
+    };
+
     
     return(
-        <button onClick = {change()}>
+        <button onClick = {Clicked()}>
             Delete
         </button>
     );

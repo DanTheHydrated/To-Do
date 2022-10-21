@@ -4,7 +4,7 @@ import DelButton from "./DelButton";
 
 
 let newId = 1;
-
+let thisA = 1;
 let taskFirst = [];
 
 export default function TaskSet() {
@@ -15,18 +15,20 @@ export default function TaskSet() {
         const where = 0; 
         const taskNext = [
             ...task.slice(0, where),
-            { id: newId++, body: body, active:1},
+            { id: newId++, body: body, active: thisA++ },
             ...task.slice(where)
         ];
         setTask(taskNext);
         setBody('');
     }
 
-    function clicked() {
+    console.log(task);
 
-    }
+    function Clicked() {
+        setTask();
+    };
 
-    let showing = task.filter((e)=> e.active===1);
+    let showing = task.filter((e)=> e.active=1);
 
 
     return (
@@ -42,7 +44,7 @@ export default function TaskSet() {
             <h5>{showing.length} :Tasks left</h5>
             <ul>
                 {showing.map(e => (
-                    <li key={e.id}>{e.body} <button onClick={clciked}>Delete</button></li>
+                    <li key={e.id}>{e.body} <button onClick={Clicked()} /> </li>
                 ))}
             </ul>
         </>
